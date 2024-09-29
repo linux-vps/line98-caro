@@ -393,15 +393,12 @@
   <script src="vendor/quill/quill.js"></script>
   <script src="vendor/tinymce/tinymce.min.js"></script>
   <script src="vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="js/main.js"></script>
    <!-- socket -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+  <!-- Template Main JS File -->
+  <script src="js/main.js"></script>
+
    <script>
-    const apiUrl = '<%= apiUrl %>';
-    // socket
-    const socket = io(`${apiUrl}`);
      let matrix = undefined;
      socket.on('connect', () => {
        console.log('Đã kết nối với server');

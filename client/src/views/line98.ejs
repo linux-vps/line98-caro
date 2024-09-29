@@ -251,16 +251,14 @@
   <script src="vendor/simple-datatables/simple-datatables.js"></script>
   <script src="vendor/tinymce/tinymce.min.js"></script>
   <script src="vendor/php-email-form/validate.js"></script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
   <!-- Template Main JS File -->
   <script src="js/main.js"></script>
     <!-- Thêm thư viện Socket.IO -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+
 
     <script>
-      const apiUrl = '<%= apiUrl %>';
-      // socket
-      const socket = io(`${apiUrl}`);
+
       let matrix = undefined;
       let newMatrix = undefined;
       let selectedBall = null;

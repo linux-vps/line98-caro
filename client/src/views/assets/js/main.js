@@ -1,4 +1,21 @@
 // custom
+const apiUrl = '<%= apiUrl %>';
+// socket
+
+let socket = undefined;
+try {
+    socket = io(`${apiUrl}`, {
+    transports: ['polling', 'websocket'], 
+    reconnection: true, 
+    extraHeaders: {
+      'ngrok-skip-browser-warning': 'true', 
+    },
+  });
+} catch (error) {
+  console.log('error:', error);
+}
+
+
 async function getAccessToken() {
   const response = await fetch(`/tokens/access-token`);
 

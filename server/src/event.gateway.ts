@@ -22,8 +22,9 @@ enum GameType {
   cors: {
     origin: '*', 
     methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type', 'ngrok-skip-browser-warning'],  
     credentials: true,
+    exposedHeaders: ['ngrok-skip-browser-warning'], 
   },
 })
 export class EventGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {

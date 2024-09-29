@@ -32,7 +32,7 @@ export class AppController {
 
   @Get(Pages.USER_PROFILE)
   @Render(Pages.USER_PROFILE)
-  userProfile() {
+  userProfile() { 
       console.log(Pages.USER_PROFILE);
       return { apiUrl: this.baseUrl };
   }
