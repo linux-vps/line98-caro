@@ -175,8 +175,7 @@ export class EventGateway implements OnGatewayInit, OnGatewayConnection, OnGatew
 
       const check = this.caroService.checkWin(game.matrix);
       if (check.isLine) {
-        
-        delete this.games[data.gameId];   // Xóa game
+
         return this.server.to(data.gameId).emit('gameOver', { winner: player.username });
        
       }
