@@ -1,6 +1,6 @@
-PATCH http://localhost:3000/users/1
+PATCH http://47.84.81.252:3001/users/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoidXNlcm5hbWUiLCJpYXQiOjE3MjczNTY1ODgsImV4cCI6MTcyNzM2MDE4OCwiYXVkIjoibXkiLCJpc3MiOiJsb2NhbGhvc3Q6MzAwMCJ9.dsgSovXtIWPeIHm_x1_26eHdaGc-0hBT7uUBN8AKtAk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiZG5taW5oMjAwMyIsImlhdCI6MTcyNzY0NjMxMCwiZXhwIjoxNzI3NjQ5OTEwLCJhdWQiOiJteSIsImlzcyI6ImxvY2FsaG9zdDozMDAwIn0.giyvVSUzwZQbP2_y6JWKVmobkE8_e6G_8J9VW3L_GxI
 
 {
   "firstName": "John",

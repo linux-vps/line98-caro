@@ -140,12 +140,9 @@ export class EventGateway implements OnGatewayInit, OnGatewayConnection, OnGatew
 
   @SubscribeMessage('getCaroRooms')
   async handleGetCaroRooms(@ConnectedSocket() socket: Socket) {
-    console.log("Danh sách games: ", this.games);
-    console.log("Lấy phòng caro");
     try {
       console.log("Lấy phòng caro");
       const caroRooms = Object.keys(this.games)
-
       .filter(gameId => this.games[gameId].gameType === GameType.CARO)
       .map(gameId => ({
         gameId,
@@ -175,7 +172,7 @@ export class EventGateway implements OnGatewayInit, OnGatewayConnection, OnGatew
 
       const check = this.caroService.checkWin(game.matrix);
       if (check.isLine) {
-        return this.server.to(data.gameId).emit('gameOver', { winner: player.username });
+        this.server.to(data.gameId).emit('gameOver', { winner: player.username });
         delete this.games[data.gameId];  // Xóa game
       }
 

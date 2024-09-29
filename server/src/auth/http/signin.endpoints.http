@@ -1,4 +1,4 @@
-POST http://localhost:3001/auth/sign-in
+POST http://47.84.81.252:3001/auth/sign-in
 Content-Type: application/json
 
 {
