@@ -399,6 +399,8 @@
   <script src="js/main.js"></script>
 
    <script>
+    let socket = undefined;
+    socket = io(`${apiUrl}`);
      let matrix = undefined;
      socket.on('connect', () => {
        console.log('Đã kết nối với server');

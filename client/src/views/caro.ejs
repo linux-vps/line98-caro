@@ -187,6 +187,8 @@
   <script src="js/main.js"></script>
 
   <script>
+    let socket = undefined;
+    socket = io(`${apiUrl}`);
     let gameId = undefined;
     let matrix = undefined;
     let player1 = undefined;
