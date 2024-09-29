@@ -15,6 +15,7 @@
 Sử dụng cho trang web game:
 - NestJS framework MVC cho client và server
 - NestJS WebSockets
+- Thuật toán Dijkstra tìm đường đi ngắn nhất
 - Bootstrap 5
 - Postgres
 - Deploy trên ubuntu cloud
