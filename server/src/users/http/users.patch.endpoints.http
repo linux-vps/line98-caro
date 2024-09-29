@@ -1,0 +1,19 @@
+PATCH http://localhost:3000/users/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoidXNlcm5hbWUiLCJpYXQiOjE3MjczNTY1ODgsImV4cCI6MTcyNzM2MDE4OCwiYXVkIjoibXkiLCJpc3MiOiJsb2NhbGhvc3Q6MzAwMCJ9.dsgSovXtIWPeIHm_x1_26eHdaGc-0hBT7uUBN8AKtAk
+
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "email": "john.smith@example.com",
+  "age": 30
+}
+
+PATCH http://localhost:3000/users/1/change-password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoidXNlcm5hbWUiLCJpYXQiOjE3MjczNTEwOTAsImV4cCI6MTcyNzM1NDY5MCwiYXVkIjoibXkiLCJpc3MiOiJsb2NhbGhvc3Q6MzAwMCJ9.DvPJvJc0j5F0QUDn3cEwpcYX5c0x6DhLWkgO5hatilk
+
+{
+  "currentPassword": "Password@123",
+  "newPassword": "Password@1234"
+}

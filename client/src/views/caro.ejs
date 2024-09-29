@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Play with stranger</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    h5 {
+        padding: 13px 0 0px 0;
+        font-size: 18px;
+        font-weight: 500;
+        color: #012970;
+    }
+    /* CSS Grid */
+    #gameBoard {
+      display: grid;
+      grid-template-columns: repeat(30, 20px);
+      grid-template-rows: repeat(30, 20px);
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .caro-cell {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #bcabab;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .caro-cell:hover {
+      background-color: #ffee31;
+      cursor: pointer;
+    }
+
+    .caro-cell[data-caro="X"] {
+      color: red;
+    }
+
+    .caro-cell[data-caro="O"] {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body class="toggle-sidebar">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index" class="logo d-flex align-items-center">
+        <img src="img/logo.png" alt="">
+        <span class="d-none d-lg-block">Play With Stranger</span>
+      </a>
+    </div><!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2 usernameDisplay"></span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6 class="usernameDisplay"></h6>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="user-profile">
+                <i class="bi bi-person"></i>
+                <span>Hồ Sơ</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#" onclick="logout()">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng Xuất</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+        
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+    <!-- <button class="btn login-button btn-primary mt-3 ms-auto" style="display:none;" onclick="window.location.href='/sign-in'">Đăng nhập</button> -->
+    <button class="login-button btn btn-primary btn-lg login-btn ms-auto" style="display:none;" onclick="window.location.href='/sign-in'">
+      <i class="bi bi-box-arrow-in-right me-2"></i>
+      Login
+  </button>
+  </header><!-- End Header -->
+
+  <main id="main" class="main">
+    <section class="section">
+      <div class="row justify-content-center">
+        <div class="col-lg-4">
+          <!-- Thông tin người chơi -->
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="">Players info</h5>
+              <div>
+                <p><strong>Player1:</strong> <span id="player1Username">Game chưa bắt đầu</span></p>
+                <p><strong>Player2:</strong> <span id="player2Username">Chưa có người vào phòng</span></p>
+                <p><strong>Bạn đang là:</strong> <span id="playerRole"></span></p>
+                <br>
+                <p><strong>Lượt đi của:</strong> <span id="currentTurn">X</span></p>
+              </div>
+              
+            </div>
+            <button id="playAgain" class="btn btn-primary" style="display: none;">Chơi lại</button>
+          </div>
+          
+        </div>
+        <div class="col-lg-6 text-center">
+          <div class="card">
+            <div class="card-body">
+              <div id="gameBoard" class="shadow p-3 mb-1 bg-white rounded">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+    </div>
+  </footer>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/chart.js/chart.umd.js"></script>
+  <script src="vendor/echarts/echarts.min.js"></script>
+  <script src="vendor/quill/quill.js"></script>
+  <script src="vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="vendor/tinymce/tinymce.min.js"></script>
+  <script src="vendor/php-email-form/validate.js"></script>
+  <!-- Template Main JS File -->
+  <script src="js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+  <script>
+    let gameId = undefined;
+    let matrix = undefined;
+    let player1 = undefined;
+    let player2 = undefined;
+    let playerRole = undefined;
+    let isStarted = false;
+    const playAgainBtn = document.getElementById('playAgain');
+    
+    // socket
+    const socket = io('http://localhost:3001');
+
+    socket.on('connect', () => {
+      console.log('Đã kết nối với server');
+    });
+
+    socket.on('gameStart', ({ players, matrix }) => {
+      const player1Username = document.getElementById('player1Username');
+      player1 = players[0].username;
+      player1Username.innerText = players[0].username;
+      const player2Username = document.getElementById('player2Username');
+      player2 = players[1].username;
+      player2Username.innerText = players[1].username;
+      console.log('Game bắt đầu!', players);
+      isStarted = true;
+    });
+
+    socket.on('error', (message) => {
+      if (isStarted){
+        console.log('Error:', message);
+        alert(message);
+      } else {
+        alert("Đang chờ người khác tham gia, vui lòng đợi");
+      }
+    });
+
+    playAgainBtn.addEventListener('click', () => {
+      socket.emit('playAgain', { gameId: gameId });
+    });
+
+    socket.on('gameRestart', (data) => {
+      alert("Chơi lại");
+      matrix = data.matrix;
+      createBoard(30, 30); 
+      playAgainBtn.style.display = 'none'; 
+    });
+    
+    socket.on('gameUpdate', (data) => {
+      console.log("gameUpdate", data);
+      matrix = data.matrix;
+      const currentTurn = data.currentTurn; 
+    
+      for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+          const cell = document.getElementById(`cell-${i}-${j}`);
+          if (matrix[i][j] === 1) {
+            cell.setAttribute('data-caro', 'X');
+            cell.textContent = 'X';
+          } else if (matrix[i][j] === 2) {
+            cell.setAttribute('data-caro', 'O');
+            cell.textContent = 'O';
+          } else {
+            cell.setAttribute('data-caro', '');
+            cell.textContent = '';
+          }
+        }
+      }
+      const currentTurnElement = document.getElementById('currentTurn');
+      currentTurnElement.innerText = currentTurn === 0 ? 'X' : 'O';
+      console.log(currentTurn === 0 ? 'X' : 'O');
+    });
+
+    function createBoard(rows, cols) {
+      const gameBoard = document.getElementById('gameBoard');
+      gameBoard.innerHTML = ''; 
+      for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+          const cell = document.createElement('div');
+          cell.classList.add('caro-cell');
+          cell.setAttribute('data-caro', '');
+          cell.id = `cell-${i}-${j}`; 
+          cell.addEventListener('click', () => handleCellClick(i, j)); 
+          gameBoard.appendChild(cell);
+        }
+      }
+    }
+    
+    function handleCellClick(x, y) {
+      const cell = document.getElementById(`cell-${x}-${y}`);
+      if (cell.getAttribute('data-caro') !== '') {
+        return; 
+      }
+      const action = { 
+        gameId: gameId, 
+        position: { row: parseInt(x), col: parseInt(y) } 
+      };
+
+      socket.emit('gameCaroAction', action);
+    }
+
+    createBoard(30, 30);
+    
+
+
+
+    if (userData) {
+        user = JSON.parse(userData);
+       const usernameElements = document.getElementsByClassName('usernameDisplay');
+
+       if (usernameElements.length > 0) {
+           usernameElements[0].innerText = user.username;
+           usernameElements[1].innerText = user.username;
+       }
+    } else {
+        console.log('Không có thông tin người dùng trong sessionStorage');
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      let userData = sessionStorage.getItem('pwtuser');
+      let user = userData ? JSON.parse(userData) : undefined;
+
+      if (user) {
+
+        document.querySelector('.header-nav').style.display = 'block';
+        let usernameDisplays = document.querySelectorAll('.usernameDisplay');
+        usernameDisplays.forEach((element) => {
+          element.textContent = user.username; 
+        });
+      } else {
+        document.querySelector('.header-nav').style.display = 'none';
+        document.querySelector('.login-button').style.display = 'block';
+      }
+    });
+    if (!user && window.location.pathname !== '/index' && window.location.pathname !== '/sign-in') {
+      window.location.href = '/sign-in';
+    }
+
+    try {
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+      async function testJoinGame() {
+        const gameIdParam = getQueryParam('gameId');
+        gameId = gameIdParam;
+        playerRole = "O";
+        const playerRoleElement = document.getElementById('playerRole');
+        playerRoleElement.innerText = playerRole;
+        const user = await getUserInfo();
+
+        if (gameId) {
+          socket.emit('joinGame', { gameId: gameId, userId: user.id, username: user.username });
+        }
+      }
+      testJoinGame();
+      async function testCreateGame() {
+        const playParam = getQueryParam('play');
+        if (playParam) {
+          playerRole = "X";
+          const playerRoleElement = document.getElementById('playerRole');
+          playerRoleElement.innerText = playerRole;
+          const user = await getUserInfo();
+          socket.emit('createGame', { userId: user.id, username: user.username });
+          socket.on('gameCreated', (data) => {
+            const player1Username = document.getElementById('player1Username');
+            player1Username.innerText = data.players[0].username;
+            gameId = data.gameId;
+          });
+        }
+      }
+      testCreateGame();
+  } catch (error) {
+      console.log(error);
+  }
+    socket.on('gameOver', (data) => {
+      alert("Winner: " + data.winner);
+      playAgainBtn.style.display = 'block';
+    });
+
+  </script>
+
+</body>
+
+</html>

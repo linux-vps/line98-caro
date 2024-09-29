@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Play with stranger</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Updated: Apr 20 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="toggle-sidebar">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index" class="logo d-flex align-items-center">
+        <img src="img/logo.png" alt="">
+        <span class="d-none d-lg-block">Play With Stranger</span>
+      </a>
+    </div><!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2 usernameDisplay">Tên</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6 class="usernameDisplay">Tên</h6>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="user-profile">
+                <i class="bi bi-person"></i>
+                <span>Hồ Sơ</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" onclick="logout()" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng Xuất</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Profile</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index">Trang Chủ</a></li>
+          <li class="breadcrumb-item">Tài Khoản</li>
+          <li class="breadcrumb-item active">Hồ Sơ</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section profile">
+      <div class="row">
+        <div class="col-xl-4">
+
+          <div class="card">
+            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+              <img src="img/profile-img.jpg" alt="Profile" class="rounded-circle">
+              <h2 class="usernameDisplay">Tên</h2>
+              <h3></h3>
+              <div class="social-links mt-2">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-xl-8">
+
+          <div class="card">
+            <div class="card-body">
+              <!-- Bordered Tabs Justified -->
+              <ul class="nav nav-tabs nav-tabs-bordered d-flex" id="borderedTabJustified" role="tablist">
+                <li class="nav-item flex-fill" role="presentation">
+                  <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" type="button" role="tab"
+                    aria-controls="profile" aria-selected="false" tabindex="-1" data-bs-target="#profile-edit">Chỉnh Sửa
+                    Hồ Sơ</button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                  <button data-bs-target="#profile-change-password" class="nav-link w-100" id="contact-tab"
+                    data-bs-toggle="tab" type="button" role="tab" aria-controls="contact" aria-selected="false"
+                    tabindex="-1">Đổi Mật Khẩu</button>
+                </li>
+              </ul>
+              <div class="tab-content pt-2" id="borderedTabJustifiedContent">
+                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                  <!-- Profile Edit Form -->
+                  <form id="editForm">
+
+                    <div class="row mb-3">
+                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Họ</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="firstName" type="text" class="form-control" id="firstName" value="Đinh">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="lastName" class="col-md-4 col-lg-3 col-form-label">Tên</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="lastName" type="text" class="form-control" id="lastName" value="Nhật Minh">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Tuổi</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="age" type="number" class="form-control" id="age" value="2003">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="email" type="email" class="form-control" id="Email" value="d.nhatminh@example.com">
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                  </form><!-- End Profile Edit Form -->
+
+                </div>
+                <div class="tab-pane fade pt-3" id="profile-change-password">
+                  <!-- Change Password Form -->
+                  <form id="editPassword">
+
+                    <div class="row mb-3">
+                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Mật Khẩu Hiện Tại</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="password" type="password" class="form-control" id="currentPassword">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Mật Khẩu Mới</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="newpassword" type="password" class="form-control" id="newPassword">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Nhập Lại Mật Khẩu Mới</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Change Password</button>
+                    </div>
+                  </form><!-- End Change Password Form -->
+
+                </div>
+              </div><!-- End Bordered Tabs Justified -->
+            </div>
+
+
+          </div>
+
+
+        </div>
+      </div>
+
+      </div>
+      </div>
+    </section>
+    <!-- Modal Bootstrap -->
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="resultModalLabel">Kết quả</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="modalContent">
+            <!-- Nội dung kết quả sẽ hiển thị tại đây -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/chart.js/chart.umd.js"></script>
+  <script src="vendor/echarts/echarts.min.js"></script>
+  <script src="vendor/quill/quill.js"></script>
+  <script src="vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="vendor/tinymce/tinymce.min.js"></script>
+  <script src="vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="js/main.js"></script>
+  <script>
+    // Chặn sự kiện submit mặc định của form và sử dụng fetch để gửi dữ liệu
+    const form = document.querySelector('#editForm');
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      // Lấy giá trị từ các trường form
+      const formData = new FormData(form);
+      const data = {
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        age: parseInt(formData.get('age')),
+        email: formData.get('email')
+      };
+
+      try {
+        // Gửi dữ liệu tới API
+        const response = await fetch(`/api/user/${user.id}`, {
+          method: 'PATCH',
+          headers: {
+            'Authorization': `Bearer ${user.accessToken}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        // Xử lý phản hồi từ API
+        const result = await response.json();
+        const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+
+        if (!result.error) {
+              // Hiển thị kết quả trong modal
+            document.getElementById('modalContent').innerHTML = `
+              <p>Sửa thông tin thành công</p>
+          `;
+
+            // Mở modal Bootstrap
+            resultModal.show();
+        } else {
+          document.getElementById('modalContent').innerHTML = `
+              <p>Message: ${result.message}</p>
+          `;
+          resultModal.show();
+        } 
+
+
+
+      } catch (error) {
+        console.error('Có lỗi xảy ra:', error);
+        document.getElementById('modalContent').innerHTML = `
+                <p>Có lỗi xảy ra: ${error.message}</p>
+            `;
+
+        // Mở modal hiển thị lỗi
+        const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+        resultModal.show();
+      }
+    });
+  </script>
+
+  <script>
+    // Chặn sự kiện submit mặc định của form và sử dụng fetch để gửi dữ liệu
+    const passwordForm = document.querySelector('#editPassword');
+    const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+
+    passwordForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      // Lấy giá trị từ các trường form
+      const formPassword = new FormData(passwordForm);
+      const newPassword = formPassword.get('newpassword');
+      const renewPassword = formPassword.get('renewpassword');
+
+      // Kiểm tra mật khẩu có khớp không
+      if (newPassword !== renewPassword) {
+        // Hiển thị kết quả không khớp trong modal
+        document.getElementById('modalContent').innerHTML = `
+                  <p style="color:red;">Mật khẩu không khớp. Vui lòng nhập lại.</p>
+              `;
+        resultModal.show();
+      } else {
+        const data = {
+          currentPassword: formPassword.get('password'),
+          newPassword: formPassword.get('newpassword'),
+          renewPassword: formPassword.get('renewpassword'),
+        };
+
+        try {
+          // Gửi dữ liệu tới API
+          const response = await fetch(`/api/user/${user.id}/change-password`, {
+            method: 'PATCH',
+            headers: {
+              'Authorization': `Bearer ${user.accessToken}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          // Xử lý phản hồi từ API
+          if (response.ok) {
+            const result = await response.json();
+            // Hiển thị kết quả thành công trong modal
+            document.getElementById('modalContent').innerHTML = `
+                          <p>Message: ${result.message}</p>
+                      `;
+          } else {
+            // Nếu phản hồi không thành công (ví dụ lỗi 400 hoặc 500)
+            document.getElementById('modalContent').innerHTML = `
+                          <p>Có lỗi xảy ra khi gửi yêu cầu: ${response.statusText}</p>
+                      `;
+          }
+          resultModal.show();
+
+        } catch (error) {
+          console.error('Có lỗi xảy ra:', error);
+          document.getElementById('modalContent').innerHTML = `
+                      <p>Có lỗi xảy ra: ${error.message}</p>
+                  `;
+          resultModal.show();
+        }
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const profileTab = document.querySelector('button[data-bs-target="#profile-edit"]');
+      if (profileTab) {
+        profileTab.click();
+      }
+    });
+  </script>
+  <script>
+    async function fillEditInput() {
+      let userInfo = await getUserInfo()
+      console.log(userInfo)
+      // fill edit form
+      document.getElementById('firstName').value = userInfo.firstName || ''; 
+      document.getElementById('lastName').value = userInfo.lastName || '';
+      document.getElementById('age').value = userInfo.age || '';
+      document.getElementById('Email').value = userInfo.email || ''; 
+    }
+    fillEditInput();
+    if (!user && window.location.pathname !== '/index' && window.location.pathname !== '/sign-in') {
+      window.location.href = '/sign-in';
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+# Get 1 user
+GET http://localhost:3004/api/user/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoidXNlcm5hbWUiLCJpYXQiOjE3Mjc0Njk5NDQsImV4cCI6MTcyNzQ3MzU0NCwiYXVkIjoibXkiLCJpc3MiOiJsb2NhbGhvc3Q6MzAwMCJ9.qyoGTeb-M2fZo6gJy-BDdY5nWICT4bcIfcECz4fBM3Y

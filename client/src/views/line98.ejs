@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Play with stranger</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Updated: Apr 20 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="toggle-sidebar">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index" class="logo d-flex align-items-center">
+        <img src="img/logo.png" alt="">
+        <span class="d-none d-lg-block">Play With Stranger</span>
+      </a>
+    </div><!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2 usernameDisplay"></span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6 class="usernameDisplay"></h6>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="user-profile">
+                <i class="bi bi-person"></i>
+                <span>Hồ Sơ</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#" onclick="logout()">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng Xuất</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+        
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+    <!-- <button class="btn login-button btn-primary mt-3 ms-auto" style="display:none;" onclick="window.location.href='/sign-in'">Đăng nhập</button> -->
+    <button class="login-button btn btn-primary btn-lg login-btn ms-auto" style="display:none;" onclick="window.location.href='/sign-in'">
+      <i class="bi bi-box-arrow-in-right me-2"></i>
+      Login
+  </button>
+  </header><!-- End Header -->
+
+
+
+  <main id="main" class="main">
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Line 98</h5>
+              <div class="container d-flex justify-content-center align-items-center">
+                <div id="gameBoard" class="shadow p-3 mb-5 bg-white rounded">
+                    <table class="table table-bordered text-center align-middle">
+                        <tbody>
+                            <tr>
+                                <td id="cell-0-0"></td>
+                                <td id="cell-0-1"></td>
+                                <td id="cell-0-2"></td>
+                                <td id="cell-0-3"></td>
+                                <td id="cell-0-4"></td>
+                                <td id="cell-0-5"></td>
+                                <td id="cell-0-6"></td>
+                                <td id="cell-0-7"></td>
+                                <td id="cell-0-8"></td>
+                            </tr>
+                            <tr>
+                                <td id="cell-1-0"></td>
+                                <td id="cell-1-1"></td>
+                                <td id="cell-1-2"></td>
+                                <td id="cell-1-3"></td>
+                                <td id="cell-1-4"></td>
+                                <td id="cell-1-5"></td>
+                                <td id="cell-1-6"></td>
+                                <td id="cell-1-7"></td>
+                                <td id="cell-1-8"></td>
+                            </tr>
+                            <tr>
+                                <td id="cell-2-0"></td>
+                                <td id="cell-2-1"></td>
+                                <td id="cell-2-2"></td>
+                                <td id="cell-2-3"></td>
+                                <td id="cell-2-4"></td>
+                                <td id="cell-2-5"></td>
+                                <td id="cell-2-6"></td>
+                                <td id="cell-2-7"></td>
+                                <td id="cell-2-8"></td>
+                            </tr>
+                            <tr>
+                                <td id="cell-3-0"></td>
+                                <td id="cell-3-1"></td>
+                                <td id="cell-3-2"></td>
+                                <td id="cell-3-3"></td>
+                                <td id="cell-3-4"></td>
+                                <td id="cell-3-5"></td>
+                                <td id="cell-3-6"></td>
+                                <td id="cell-3-7"></td>
+                                <td id="cell-3-8"></td>
+                            </tr>
+                            <tr>
+                                <td id="cell-4-0"></td>
+                                <td id="cell-4-1"></td>
+                                <td id="cell-4-2"></td>
+                                <td id="cell-4-3"></td>
+                                <td id="cell-4-4"></td>
+                                <td id="cell-4-5"></td>
+                                <td id="cell-4-6"></td>
+                                <td id="cell-4-7"></td>
+                                <td id="cell-4-8"></td>
+                            </tr>
+                            <tr>
+                                <td id="cell-5-0"></td>
+                                <td id="cell-5-1"></td>
+                                <td id="cell-5-2"></td>
+                                <td id="cell-5-3"></td>
+                                <td id="cell-5-4"></td>
+                                <td id="cell-5-5"></td>
+                                <td id="cell-5-6"></td>
+                                <td id="cell-5-7"></td>
+                                <td id="cell-5-8"></td>
+                            </tr>
+                            <tr>
+                                <td id="cell-6-0"></td>
+                                <td id="cell-6-1"></td>
+                                <td id="cell-6-2"></td>
+                                <td id="cell-6-3"></td>
+                                <td id="cell-6-4"></td>
+                                <td id="cell-6-5"></td>
+                                <td id="cell-6-6"></td>
+                                <td id="cell-6-7"></td>
+                                <td id="cell-6-8"></td>
+                            </tr>
+                            <tr>
+                                <td id="cell-7-0"></td>
+                                <td id="cell-7-1"></td>
+                                <td id="cell-7-2"></td>
+                                <td id="cell-7-3"></td>
+                                <td id="cell-7-4"></td>
+                                <td id="cell-7-5"></td>
+                                <td id="cell-7-6"></td>
+                                <td id="cell-7-7"></td>
+                                <td id="cell-7-8"></td>
+                            </tr>
+                            <tr>
+                                <td id="cell-8-0"></td>
+                                <td id="cell-8-1"></td>
+                                <td id="cell-8-2"></td>
+                                <td id="cell-8-3"></td>
+                                <td id="cell-8-4"></td>
+                                <td id="cell-8-5"></td>
+                                <td id="cell-8-6"></td>
+                                <td id="cell-8-7"></td>
+                                <td id="cell-8-8"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button id="startLine98" class="btn btn-primary mt-3">New game</button>
+                    <button id="getSuggestMove" class="btn btn-primary mt-3">Suggest move</button>
+                </div>
+            </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/chart.js/chart.umd.js"></script>
+  <script src="vendor/echarts/echarts.min.js"></script>
+  <script src="vendor/quill/quill.js"></script>
+  <script src="vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="vendor/tinymce/tinymce.min.js"></script>
+  <script src="vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="js/main.js"></script>
+    <!-- Thêm thư viện Socket.IO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+
+    <script>
+      const socket = io('http://localhost:3001');
+      let matrix = undefined;
+      let newMatrix = undefined;
+      let selectedBall = null;
+      function renderUI(matrix) {
+          for (let row = 0; row < 9; row++) {
+              for (let col = 0; col < 9; col++) {
+                  let cell = document.getElementById(`cell-${row}-${col}`);
+                  cell.innerHTML = '';
+                  let value = matrix[row][col];
+      
+                  if (value === 0) {
+                      cell.innerHTML = '';
+                  } else if (value.type && value.color) {
+                      if (value.type === 1) {
+                          let ball = document.createElement('div');
+                          ball.className = 'small-ball';
+                          ball.style.backgroundColor = value.color;
+                          cell.appendChild(ball);
+                      } else {
+                          let ball = document.createElement('div');
+                          ball.className = 'ball';
+                          ball.style.backgroundColor = value.color;
+                          cell.appendChild(ball);
+                              // cell.innerHTML = value.type === 1 ? 'Small Ball' : 'Large Ball';
+                      }
+                  }
+              }   
+          }
+      }
+      socket.on('connect', () => {
+        console.log('Đã kết nối với server');
+      });
+      document.getElementById('getSuggestMove').addEventListener('click', () => {
+        socket.emit('getSuggestMove');
+      });
+      // Nút bắt đầu game
+      document.getElementById('startLine98').addEventListener('click', async () => {
+        const user = await getUserInfo();
+        const initData = { gameType: 'line98', user }; 
+        socket.emit('initializeGame', initData);
+        socket.on('gameInit', (data) => {
+            console.log("init data", data);
+            matrix = data.matrix;
+            renderUI(data.matrix);
+          });
+      });
+
+      socket.on('gameUpdate', (data) => {
+        console.log("gameUpdate")
+          newMatrix = data.matrix;
+          if (data.found){
+              const prevSelectedCell = document.getElementById(`cell-${selectedBall.x}-${selectedBall.y}`);
+              const prevBall = prevSelectedCell.querySelector('.ball');
+              if (prevBall) prevBall.classList.remove('selected-ball');
+  
+              // let from = selectedBall;
+              moveBall(data.path)
+              selectedBall = null;
+              
+          }
+      });
+      socket.on('gameOver', (data) => {
+        alert("Game over")
+        socket.emit('initializeGame', { gameType: 'line98' });
+      });
+      socket.on('suggestMoveUpdate', (data) => {
+        selectedBall = { x: data.suggestMove.start[0], y: data.suggestMove.start[1] };
+        let action = { 
+            action: 'move', 
+            position: { 
+              from: { x: data.suggestMove.start[0], y: data.suggestMove.start[1] }, 
+              to: { x: data.suggestMove.end[0], y: data.suggestMove.end[1] }
+            } 
+        };
+        socket.emit('gameAction', action);
+      });
+        async function handleCellClick(x, y) {
+            let value = matrix[x][y];
+            if (value.type === 2) {
+                // Nếu có quả bóng lớn được chọn trước đó, xóa hiệu ứng cũ
+                if (selectedBall) {
+                    const prevSelectedCell = document.getElementById(`cell-${selectedBall.x}-${selectedBall.y}`);
+                    const prevBall = prevSelectedCell.querySelector('.ball');
+                    if (prevBall) prevBall.classList.remove('selected-ball');
+                }
+        
+                selectedBall = { x, y };
+                const selectedCell = document.getElementById(`cell-${x}-${y}`);
+                const ball = selectedCell.querySelector('.ball');
+                if (ball) {
+                    ball.classList.add('selected-ball');
+                }
+            } else if (selectedBall) {
+                // Nếu chọn bóng nhỏ hoặc ô trống
+                const action = { 
+                    action: 'move', 
+                    position: { 
+                      from: { x: selectedBall.x, y: selectedBall.y }, 
+                      to: { x: x, y: y }
+                    } 
+                };
+                socket.emit('gameAction', action);
+            }
+        }
+        
+        document.addEventListener("DOMContentLoaded",  function() {
+            const cells = document.querySelectorAll('#gameBoard td');
+            cells.forEach(cell => {
+                cell.addEventListener('click', async function() {
+                    const [_, x, y] = this.id.split('-').map(Number);
+                    await handleCellClick(x, y);
+                });
+            });
+        });
+        async function moveBall(path) {
+            let from = selectedBall;
+            
+            for (let i = 1; i < path.length; i++) {
+                let to = {x: path[i][0], y: path[i][1]};
+                await moveStep(from, to);
+                from = to;
+
+            }
+            renderUI(newMatrix);
+            matrix = newMatrix;
+        }
+        function moveStep(from, to) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+
+                    matrix[to.x][to.y] = matrix[from.x][from.y]; // Di chuyển quả bóng
+                    if (matrix[from.x][from.y].type === 2){
+                        matrix[from.x][from.y] = 0; // Xóa bóng 
+                    }
+                    renderUI(matrix);
+                    resolve();
+                }, 40); 
+            });
+        }
+    </script>
+  <script>
+    if (userData) {
+
+      user = JSON.parse(userData);
+      const usernameElements = document.getElementsByClassName('usernameDisplay');
+
+      if (usernameElements.length > 0) {
+           usernameElements[0].innerText = user.username;
+           usernameElements[1].innerText = user.username;
+      }
+    } else {
+        console.log('Không có thông tin người dùng trong sessionStorage');
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      let userData = sessionStorage.getItem('pwtuser');
+      let user = userData ? JSON.parse(userData) : undefined;
+      if (user) {
+        document.querySelector('.header-nav').style.display = 'block';
+        let usernameDisplays = document.querySelectorAll('.usernameDisplay');
+        usernameDisplays.forEach((element) => {
+          element.textContent = user.username; 
+        });
+      } else {
+        document.querySelector('.header-nav').style.display = 'none';
+        document.querySelector('.login-button').style.display = 'block';
+      }
+    });
+    if (!user && window.location.pathname !== '/index' && window.location.pathname !== '/sign-in') {
+      window.location.href = '/sign-in';
+    }
+  </script>
+</body>
+
+</html>
