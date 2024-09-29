@@ -140,6 +140,7 @@ export class EventGateway implements OnGatewayInit, OnGatewayConnection, OnGatew
 
   @SubscribeMessage('getCaroRooms')
   async handleGetCaroRooms(@ConnectedSocket() socket: Socket) {
+    console.log("Danh sách games: ", this.games);
     console.log("Lấy phòng caro");
     try {
       console.log("Lấy phòng caro");
@@ -151,10 +152,9 @@ export class EventGateway implements OnGatewayInit, OnGatewayConnection, OnGatew
         players: this.games[gameId].players.map(player => player.username),
       }));
     this.server.to(socket.id).emit('caroRooms', caroRooms);
-    } catch {
-      console.log("Không có phòng nào");
+    } catch (error) {
+      console.log("Không có phòng nào: ", error);
     }
-
   }
 
   @SubscribeMessage('gameCaroAction')
