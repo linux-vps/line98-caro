@@ -20,7 +20,7 @@ enum GameType {
 
 @WebSocketGateway({
   cors: {
-    origin: 'http://47.84.81.252:3004', // Địa chỉ của client
+    origin: process.env.CLIENT_URL, // Địa chỉ của client
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
     credentials: true,
