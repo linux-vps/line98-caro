@@ -193,9 +193,9 @@
     let playerRole = undefined;
     let isStarted = false;
     const playAgainBtn = document.getElementById('playAgain');
-    
+    const apiUrl = '<%= apiUrl %>';
     // socket
-    const socket = io(apiUrl);
+    const socket = io(`${apiUrl}`);
 
     socket.on('connect', () => {
       console.log('Đã kết nối với server');
