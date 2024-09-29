@@ -2,9 +2,7 @@ import { IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString, MaxLength, MinLeng
 import { CreateUserDto } from './create-user.dto';
 import { PartialType, OmitType } from '@nestjs/swagger';
 
-export class PatchUserDto extends PartialType(
-  OmitType(CreateUserDto, ['password', 'username'] as const)
-) {
+export class PatchUserDto  {
   @IsNumber()
   @IsOptional()
   age: number;
