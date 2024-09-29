@@ -32,6 +32,7 @@ import { CaroModule } from './caro/caro.module';
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
         host: configService.get('database.host'),
+        // host: '47.84.81.252',
         port: configService.get('database.port'),
         username: configService.get('database.user'),
         password: configService.get<string>('database.password'),

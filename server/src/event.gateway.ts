@@ -20,8 +20,8 @@ enum GameType {
 
 @WebSocketGateway({
   cors: {
-    origin: '*', 
-    methods: ['GET', 'POST'],
+    origin: true, 
+    methods: ['GET', 'POST'], 
     allowedHeaders: ['Content-Type'],  
     credentials: true,
   },
@@ -30,9 +30,9 @@ export class EventGateway implements OnGatewayInit, OnGatewayConnection, OnGatew
   @WebSocketServer()
   server: Server;
 
-  private games: { [key: string]: any } = {};
+  private games: { [key: string]: any } = {}; 
 
-  constructor(
+  constructor( 
     private readonly line98Service: Line98Service,
     private readonly suggestProvider: SuggestProvider,
     private readonly caroService: CaroService
@@ -140,8 +140,11 @@ export class EventGateway implements OnGatewayInit, OnGatewayConnection, OnGatew
 
   @SubscribeMessage('getCaroRooms')
   async handleGetCaroRooms(@ConnectedSocket() socket: Socket) {
+    console.log("Lấy phòng caro");
     try {
+      console.log("Lấy phòng caro");
       const caroRooms = Object.keys(this.games)
+
       .filter(gameId => this.games[gameId].gameType === GameType.CARO)
       .map(gameId => ({
         gameId,

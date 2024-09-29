@@ -1,5 +1,5 @@
 // custom
-const apiUrl = '<%= apiUrl %>';
+
 // socket
 
 try {

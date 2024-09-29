@@ -28,11 +28,11 @@ export class AppController {
   signInPage() {
       console.log(Pages.SIGN_IN);
       return { apiUrl: this.baseUrl };
-  }
+  } 
 
   @Get(Pages.USER_PROFILE)
   @Render(Pages.USER_PROFILE)
-  userProfile() { 
+  userProfile() {  
       console.log(Pages.USER_PROFILE);
       return { apiUrl: this.baseUrl };
   }
