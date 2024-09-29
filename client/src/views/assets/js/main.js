@@ -11,6 +11,8 @@ function logout() {
   window.location.reload();
 }
 
+const apiUrl = '<%= apiUrl %>';
+
 let userData = sessionStorage.getItem('pwtuser');
 let user = JSON.parse(userData);
 

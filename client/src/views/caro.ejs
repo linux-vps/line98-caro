@@ -195,7 +195,7 @@
     const playAgainBtn = document.getElementById('playAgain');
     
     // socket
-    const socket = io('http://localhost:3001');
+    const socket = io(apiUrl);
 
     socket.on('connect', () => {
       console.log('Đã kết nối với server');

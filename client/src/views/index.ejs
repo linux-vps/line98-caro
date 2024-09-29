@@ -399,7 +399,7 @@
    <!-- socket -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
    <script>
-     const socket = io('http://localhost:3001');
+     const socket = io(apiUrl);
      let matrix = undefined;
      socket.on('connect', () => {
        console.log('Đã kết nối với server');
